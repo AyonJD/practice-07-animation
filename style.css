@@ -26,7 +26,7 @@
     width: 100px;
     cursor: pointer;
 }
-button{
+.button, .custom{
     color: #fbfcfd;
     padding: 10px 25px;
     background: transparent;
@@ -34,6 +34,38 @@ button{
     border-radius: 20px;
     outline: none;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+.button span{
+    background: #000729;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0;
+    z-index: -1;
+    transition: .5s;
+}
+.button:hover span{
+    width: 100%;
+}
+
+.custom::after{
+    content: "";
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    background-color: #000729;
+    position: absolute;
+    transition: .5s;
+    z-index: -1;
+}
+.custom:hover::after{
+    width: 100%;
+    
 }
 .content{
     color: #fbfcfd;
@@ -91,6 +123,7 @@ button{
     position: absolute;
     bottom: -70px;
 }
+
 /* Animation */
 @keyframes bubble{
     0%{
